@@ -1,0 +1,22 @@
+﻿@model Abc.Northwind.MvcWebUI.Models.CategoryListViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+    @foreach (var item in Model.Categories)
+    {
+        @item.CategoryName
+        <br />
+    }
+</div>
+</body>
+</html>

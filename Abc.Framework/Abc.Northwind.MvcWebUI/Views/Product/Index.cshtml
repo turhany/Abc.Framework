@@ -1,0 +1,22 @@
+﻿@model Abc.Northwind.MvcWebUI.Models.ProductListViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+    <div>
+        @foreach (var item in Model.Products)
+            {
+            @item.ProductName
+            <br />
+        }
+    </div>
+</body>
+</html>

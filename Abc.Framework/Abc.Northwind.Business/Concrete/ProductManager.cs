@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Abc.Core.Aspects.Postsharp;
+using Abc.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using Abc.Core.DataAccess;
 using Abc.Northwind.Business.Abstract;
+using Abc.Northwind.Business.ValidationRules.FluentValidations;
 using Abc.Northwind.DataAccess.Abstract;
 using Abc.Northwind.Entities.Concrete;
+using FluentValidation;
 
 namespace Abc.Northwind.Business.Concrete
 {
@@ -33,9 +37,28 @@ namespace Abc.Northwind.Business.Concrete
             return _productDal.Get(p => p.ProductId == productId);
         }
 
+        //level 3
+        [FluentValidationAspect(typeof(ProductValidator))]
         public void Add(Product product)
         {
             _productDal.Add(product);
+
+            //level 2
+            //ValidationTool.FluentValidate(new ProductValidator(), product);
+            //_productDal.Add(product);
+
+            //level1
+            //ProductValidator validator = new ProductValidator();
+            //var result = validator.Validate(product);
+
+            //if (result.IsValid)
+            //{
+            //    _productDal.Add(product);
+            //}
+            //else
+            //{
+            //    throw new ValidationException(result.Errors);
+            //}
         }
 
         public void Update(Product product)

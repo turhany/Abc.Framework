@@ -51,7 +51,7 @@ namespace Abc.Northwind.Business.Concrete
             _productDal.Add(product);
             
             //Transaction örneklemesi için
-            _productDal.Add(new Product());
+            //_productDal.Add(new Product());
             
             //level 2
             //ValidationTool.FluentValidate(new ProductValidator(), product);

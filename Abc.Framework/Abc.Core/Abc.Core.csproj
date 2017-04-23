@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aspects\Postsharp\Caching\CacheAspect.cs" />
+    <Compile Include="Aspects\Postsharp\Caching\CacheRemoveAspect.cs" />
     <Compile Include="Aspects\Postsharp\Transaction\TransactionScopeAspect.cs" />
     <Compile Include="Aspects\Postsharp\Validation\FluentValidationAspect.cs" />
     <Compile Include="CrossCuttingConcerns\Caching\ICacheManager.cs" />

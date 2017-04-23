@@ -46,6 +46,7 @@ namespace Abc.Northwind.Business.Concrete
         //level 3
         [FluentValidationAspect(typeof(ProductValidator))]
         [TransactionScopeAspect]
+        [CacheRemoveAspect]
         public void Add(Product product)
         {
             _productDal.Add(product);
@@ -72,11 +73,13 @@ namespace Abc.Northwind.Business.Concrete
         }
 
         [TransactionScopeAspect]
+        [CacheRemoveAspect]
         public void Update(Product product)
         {
             _productDal.Update(product);
         }
 
+        [CacheRemoveAspect]
         public void DeleteById(int productId)
         {
             _productDal.Delete(new Product() { ProductId = productId });

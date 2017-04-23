@@ -2,6 +2,7 @@
 using System.Linq;
 using Abc.Core.Aspects.Postsharp;
 using Abc.Core.Aspects.Postsharp.Caching;
+using Abc.Core.Aspects.Postsharp.Transaction;
 using Abc.Core.Aspects.Postsharp.Validation;
 using Abc.Core.CrossCuttingConcerns.Caching.Microsoft;
 using Abc.Core.CrossCuttingConcerns.Validation.FluentValidation;
@@ -44,10 +45,14 @@ namespace Abc.Northwind.Business.Concrete
 
         //level 3
         [FluentValidationAspect(typeof(ProductValidator))]
+        [TransactionScopeAspect]
         public void Add(Product product)
         {
             _productDal.Add(product);
-
+            
+            //Transaction örneklemesi için
+            _productDal.Add(new Product());
+            
             //level 2
             //ValidationTool.FluentValidate(new ProductValidator(), product);
             //_productDal.Add(product);
@@ -66,6 +71,7 @@ namespace Abc.Northwind.Business.Concrete
             //}
         }
 
+        [TransactionScopeAspect]
         public void Update(Product product)
         {
             _productDal.Update(product);

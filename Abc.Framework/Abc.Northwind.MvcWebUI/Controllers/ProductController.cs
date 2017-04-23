@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Abc.Northwind.Business.Abstract;
+using Abc.Northwind.Entities.Concrete;
 using Abc.Northwind.MvcWebUI.Models;
 
 namespace Abc.Northwind.MvcWebUI.Controllers
@@ -21,6 +22,12 @@ namespace Abc.Northwind.MvcWebUI.Controllers
             };
 
             return View(model);
+        }
+
+        public ActionResult Add()
+        {
+            _productService.Add(new Product() {CategoryId = 1, ProductName = "Elma", UnitPrice = 15, UnitsInStock = 5});
+            return Content("Added");
         }
     }
 }

@@ -4,10 +4,10 @@ namespace Abc.Northwind.Entities.Concrete
 {
     public class Product : IEntity
     {
-        public int ProductId { get; set; }
-        public int CategoryId { get; set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
-        public short UnitsInStock { get; set; }
+        public virtual int ProductId { get; set; }
+        public virtual int CategoryId { get; set; }
+        public virtual string ProductName { get; set; }
+        public virtual decimal UnitPrice { get; set; }
+        public virtual short UnitsInStock { get; set; }
     }
 }

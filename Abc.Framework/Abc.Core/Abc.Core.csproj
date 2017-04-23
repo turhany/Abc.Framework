@@ -58,6 +58,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -91,7 +92,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aspects\Postsharp\FluentValidationAspect.cs" />
+    <Compile Include="Aspects\Postsharp\Caching\CacheAspect.cs" />
+    <Compile Include="Aspects\Postsharp\Validation\FluentValidationAspect.cs" />
+    <Compile Include="CrossCuttingConcerns\Caching\ICacheManager.cs" />
+    <Compile Include="CrossCuttingConcerns\Caching\Microsoft\MemoryCacheManager.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\FluentValidation\ValidationTool.cs" />
     <Compile Include="DataAccess\EntityFramework\EFEntityRepositoryBase.cs" />
     <Compile Include="DataAccess\EntityFramework\EFQueryableRepository.cs" />
@@ -102,6 +106,8 @@
     <Compile Include="Utilities\Mvc\Infrastructure\NinjectControllerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CrossCuttingConcerns\Caching\MemCache\" />
+    <Folder Include="CrossCuttingConcerns\Caching\Redis\" />
     <Folder Include="DataAccess\NHibernate\" />
   </ItemGroup>
   <ItemGroup>

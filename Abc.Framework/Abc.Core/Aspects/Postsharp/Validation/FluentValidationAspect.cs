@@ -4,7 +4,7 @@ using Abc.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using FluentValidation;
 using PostSharp.Aspects;
 
-namespace Abc.Core.Aspects.Postsharp
+namespace Abc.Core.Aspects.Postsharp.Validation
 {
     [Serializable]
     public class FluentValidationAspect : OnMethodBoundaryAspect
@@ -16,7 +16,7 @@ namespace Abc.Core.Aspects.Postsharp
             _validatorType = validatorType;
         }
 
-        public override void OnEntry(MethodExecutionArgs args)
+        public override void OnEntry(MethodExecutionArgs args)//Compile time
         {
             var validator = (IValidator)Activator.CreateInstance(_validatorType);
 

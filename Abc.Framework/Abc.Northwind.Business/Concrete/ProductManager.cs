@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Abc.Core.Aspects.Postsharp;
+using Abc.Core.Aspects.Postsharp.Caching;
+using Abc.Core.Aspects.Postsharp.Validation;
+using Abc.Core.CrossCuttingConcerns.Caching.Microsoft;
 using Abc.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using Abc.Core.DataAccess;
 using Abc.Northwind.Business.Abstract;
@@ -22,11 +25,13 @@ namespace Abc.Northwind.Business.Concrete
             _productRepository = productRepository;
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Product> GetAll()
         {
             return _productDal.GetList();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Product> GetByCategory(int catergoryId)
         {
             return _productDal.GetList(p => p.CategoryId == catergoryId);

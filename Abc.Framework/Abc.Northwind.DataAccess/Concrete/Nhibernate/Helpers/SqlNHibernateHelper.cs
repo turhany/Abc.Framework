@@ -1,8 +1,10 @@
-﻿using System.Reflection;
+﻿using System.Configuration;
+using System.Reflection;
 using Abc.Core.DataAccess.NHibernate;
-using FluentNHibernate.Cfg;
-using FluentNHibernate.Cfg.Db;
 using NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Cfg.MappingSchema;
+using NHibernate.Mapping.ByCode;
 
 namespace Abc.Northwind.DataAccess.Concrete.Nhibernate.Helpers
 {
@@ -10,11 +12,22 @@ namespace Abc.Northwind.DataAccess.Concrete.Nhibernate.Helpers
     {
         protected override ISessionFactory InitilizeFactory()
         {
-            return Fluently.Configure().Database(MsSqlConfiguration.MsSql2012
-                    .ConnectionString(c => c.FromConnectionStringWithKey("NorthwindContext")))
-                .Mappings(t => t.FluentMappings.AddFromAssembly(Assembly.GetExecutingAssembly()))
-                //.ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
-                .BuildSessionFactory();
+            var connectionString = ConfigurationManager.ConnectionStrings["NorthwindContext"].ToString();
+            NHibernate.Cfg.Configuration cfg = new NHibernate.Cfg.Configuration()
+                .DataBaseIntegration(db =>
+                {
+                    db.ConnectionString = connectionString;
+                    db.Dialect<NHibernate.Dialect.MsSql2012Dialect>();
+                });
+
+            var mapper = new ModelMapper();
+            mapper.AddMappings(Assembly.GetExecutingAssembly().GetExportedTypes());
+            HbmMapping mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
+            cfg.AddMapping(mapping);
+
+            ISessionFactory sessionFactory = cfg.BuildSessionFactory();
+
+            return sessionFactory;
         }
     }
 }

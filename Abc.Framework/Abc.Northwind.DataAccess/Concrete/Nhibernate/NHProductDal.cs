@@ -1,4 +1,5 @@
-﻿using Abc.Core.DataAccess.NHibernate;
+﻿using System.Collections.Generic;
+using Abc.Core.DataAccess.NHibernate;
 using Abc.Northwind.DataAccess.Abstract;
 using Abc.Northwind.Entities.Concrete;
 
@@ -11,6 +12,11 @@ namespace Abc.Northwind.DataAccess.Concrete.Nhibernate
         public NHProductDal(NHibernateHelper nHibernateHelper) : base(nHibernateHelper)
         {
             _nHibernateHelper = nHibernateHelper;
+        }
+
+        public List<Product> RunSql()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

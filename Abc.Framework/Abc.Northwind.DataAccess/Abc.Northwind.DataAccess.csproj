@@ -67,6 +67,7 @@
     <Compile Include="Concrete\EntityFramework\EFCategoryDal.cs" />
     <Compile Include="Concrete\EntityFramework\EFProductDal.cs" />
     <Compile Include="Concrete\EntityFramework\NorthwindContext.cs" />
+    <Compile Include="Concrete\Nhibernate\Helpers\OracleNHibernateHelper.cs" />
     <Compile Include="Concrete\Nhibernate\Helpers\SqlNHibernateHelper.cs" />
     <Compile Include="Concrete\Nhibernate\Mapping\ProductMap.cs" />
     <Compile Include="Concrete\Nhibernate\NHProductDal.cs" />

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Abc.Core.Aspects.Postsharp;
 using Abc.Core.Aspects.Postsharp.Caching;
+using Abc.Core.Aspects.Postsharp.Performance;
 using Abc.Core.Aspects.Postsharp.Transaction;
 using Abc.Core.Aspects.Postsharp.Validation;
 using Abc.Core.CrossCuttingConcerns.Caching.Microsoft;
@@ -26,9 +28,12 @@ namespace Abc.Northwind.Business.Concrete
             _productRepository = productRepository;
         }
 
+        //[PerformanceCounterAspect(5)] //bu aspect tüm manager kodları için çalışmasını istiyoruz
         [CacheAspect(typeof(MemoryCacheManager))]
         public List<Product> GetAll()
         {
+            Thread.Sleep(6000);
+
             return _productDal.GetList();
         }
 
@@ -50,10 +55,10 @@ namespace Abc.Northwind.Business.Concrete
         public void Add(Product product)
         {
             _productDal.Add(product);
-            
+
             //Transaction örneklemesi için
             //_productDal.Add(new Product());
-            
+
             //level 2
             //ValidationTool.FluentValidate(new ProductValidator(), product);
             //_productDal.Add(product);

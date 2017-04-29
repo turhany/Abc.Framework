@@ -22,6 +22,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Abc.Northwind.WcfLibrary", "Abc.Northwind.WcfLibrary\", "{FADAB4F2-B93A-4F7C-A491-60999A17F3FF}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{ED58979B-9733-4736-87A4-4313291EB72C}|Abc.Northwind.Business.dll;{CDC7F099-45DD-4DB6-91A9-27E2E1A3101F}|Abc.Core.dll;{83ABC743-4F0A-4BC7-BC25-0032326BAEC8}|Abc.Northwind.DataAccess.dll;{D477A7AD-2C1E-4DE9-935A-2E4C3859056F}|Abc.Northwind.Entities.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_2281"
 		Debug.AspNetCompiler.PhysicalPath = "Abc.Northwind.WcfLibrary\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2281\"

@@ -6,7 +6,6 @@ using Abc.Northwind.Business.Abstract;
 using Abc.Northwind.Business.Concrete;
 using Abc.Northwind.DataAccess.Abstract;
 using Abc.Northwind.DataAccess.Concrete.EntityFramework;
-using Abc.Northwind.DataAccess.Concrete.Nhibernate;
 using Abc.Northwind.DataAccess.Concrete.Nhibernate.Helpers;
 using Ninject.Modules;
 

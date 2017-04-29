@@ -38,7 +38,7 @@ public class ProductService : IProductService
         }).ToList();
 
         //var result = _productService.GetAll();
-        //return Mapper.Map<List<Product>>(result);
+        //return Mapper.Map<List<Product>, List<Product>>(result);
     }
 
     public List<Product> GetByCategory(int catergoryId)

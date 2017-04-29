@@ -51,8 +51,16 @@
       <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
@@ -107,11 +115,21 @@
   <ItemGroup>
     <Compile Include="Aspects\Postsharp\Caching\CacheAspect.cs" />
     <Compile Include="Aspects\Postsharp\Caching\CacheRemoveAspect.cs" />
+    <Compile Include="Aspects\Postsharp\Logging\LogAspect.cs" />
     <Compile Include="Aspects\Postsharp\Performance\PerformanceCounterAspect.cs" />
     <Compile Include="Aspects\Postsharp\Transaction\TransactionScopeAspect.cs" />
     <Compile Include="Aspects\Postsharp\Validation\FluentValidationAspect.cs" />
     <Compile Include="CrossCuttingConcerns\Caching\ICacheManager.cs" />
     <Compile Include="CrossCuttingConcerns\Caching\Microsoft\MemoryCacheManager.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\Log4Net\Layouts\JsonLayout.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\Log4Net\Loggers\ConsoleLogger.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\Log4Net\Loggers\DatabaseLogger.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\Log4Net\Loggers\EventLogger.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\Log4Net\Loggers\FileLogger.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\Log4Net\SerializableLogEvent.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\LogDetail.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\LoggerService.cs" />
+    <Compile Include="CrossCuttingConcerns\Logging\LogParameter.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\FluentValidation\ValidationTool.cs" />
     <Compile Include="DataAccess\EntityFramework\EFEntityRepositoryBase.cs" />
     <Compile Include="DataAccess\EntityFramework\EFQueryableRepository.cs" />

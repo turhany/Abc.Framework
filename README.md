@@ -7,6 +7,6 @@ EntityFramework(CodeFirst)
 PostSharp(4.2.17)   
 FluentValidation   
 Ninject   
-Log4Net
-Moq
+Log4Net    
+Moq    
 AutoMapper

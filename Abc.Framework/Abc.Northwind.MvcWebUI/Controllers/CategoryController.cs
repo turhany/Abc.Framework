@@ -10,7 +10,7 @@ namespace Abc.Northwind.MvcWebUI.Controllers
 {
     public class CategoryController : Controller
     {
-        private ICategoryService _categoryService;
+        private readonly ICategoryService _categoryService;
 
         public CategoryController(ICategoryService categoryService)
         {

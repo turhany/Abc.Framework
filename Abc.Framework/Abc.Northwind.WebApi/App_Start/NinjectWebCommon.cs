@@ -49,7 +49,7 @@ namespace Abc.Northwind.WebApi.App_Start
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-                //TODO:Ninject ile resolve et
+                //TODO:webapi Ninject ile resolve et
                 GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
 
                 RegisterServices(kernel);
@@ -68,7 +68,7 @@ namespace Abc.Northwind.WebApi.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            //TODO: ninject module set edilmesi
+            //TODO: webapi Ninject module set edilmesi
             kernel.Load(new BusinessModule());
         }        
     }

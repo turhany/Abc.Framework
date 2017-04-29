@@ -4,7 +4,7 @@ namespace Abc.Core.CrossCuttingConcerns.Logging
 {
     public abstract class LoggerService
     {
-        private ILog _log;
+        private readonly ILog _log;
 
         protected LoggerService(ILog log)
         {

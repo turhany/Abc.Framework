@@ -7,7 +7,7 @@ namespace Abc.Northwind.MvcWebUI.Controllers
 {
     public class ProductController : Controller
     {
-        private IProductService _productService;
+        private readonly IProductService _productService;
 
         public ProductController(IProductService productService)
         {

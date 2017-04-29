@@ -16,7 +16,7 @@ namespace Abc.Core.Aspects.Postsharp.Transaction
             _option = option;
         }
 
-        private TransactionScopeOption _option;
+        private readonly TransactionScopeOption _option;
 
         public override void OnEntry(MethodExecutionArgs args)
         {

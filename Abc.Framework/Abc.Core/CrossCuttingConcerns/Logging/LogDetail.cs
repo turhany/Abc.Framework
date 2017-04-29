@@ -1,6 +1,4 @@
-﻿
-using System.Collections.Generic;
-using FluentNHibernate.Testing.Values;
+﻿using System.Collections.Generic;
 
 namespace Abc.Core.CrossCuttingConcerns.Logging
 {

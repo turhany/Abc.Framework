@@ -5,10 +5,10 @@ using Abc.Northwind.Entities.Concrete;
 
 namespace Abc.Northwind.Business.Abstract
 {
-    [ServiceContract] //Servis olduğunu ifade ediyoruz
+    [ServiceContract] //Servis olduğunu ifade ediyoruz (Wcf için gerekli)
     public interface IProductService
     {
-        [OperationContract]
+        [OperationContract] //Wcf ile dışarı açılacak method olduğunuz ifade ediyor
         List<Product> GetAll();
 
         [OperationContract]

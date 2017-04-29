@@ -1,5 +1,4 @@
-﻿
-namespace Abc.Core.Entities
+﻿namespace Abc.Core.Entities
 {
     public interface IEntity
     {

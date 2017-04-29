@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using Abc.Core.CrossCuttingConcerns.Caching.Microsoft;
 using PostSharp.Aspects;
 

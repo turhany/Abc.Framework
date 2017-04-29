@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using Abc.Core.CrossCuttingConcerns.Logging;
@@ -12,7 +11,7 @@ namespace Abc.Core.Aspects.Postsharp.Logging
     {
         [NonSerialized]
         private LoggerService _loggerService;
-        private Type _loggerType;
+        private readonly Type _loggerType;
 
         public LogAspect(Type loggerType)
         {

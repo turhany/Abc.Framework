@@ -8,7 +8,7 @@ namespace Abc.Core.Aspects.Postsharp.Performance
     [Serializable]
     public class PerformanceCounterAspect : OnMethodBoundaryAspect
     {
-        private int _interval;
+        private readonly int _interval;
 
         [NonSerialized]
         private Stopwatch _stopwatch;

@@ -7,7 +7,7 @@ namespace Abc.Core.Utilities.Mvc.Infrastructure
 {
     public class NinjectControllerFactory : DefaultControllerFactory
     {
-        private IKernel _kernel;
+        private readonly IKernel _kernel;
 
         public NinjectControllerFactory(INinjectModule module)
         {

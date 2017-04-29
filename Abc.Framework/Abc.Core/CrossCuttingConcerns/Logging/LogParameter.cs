@@ -1,5 +1,4 @@
-﻿
-namespace Abc.Core.CrossCuttingConcerns.Logging
+﻿namespace Abc.Core.CrossCuttingConcerns.Logging
 {
     public class LogParameter
     {

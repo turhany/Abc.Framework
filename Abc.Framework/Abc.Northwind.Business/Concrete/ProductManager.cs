@@ -1,21 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Abc.Core.Aspects.Postsharp;
 using Abc.Core.Aspects.Postsharp.Caching;
 using Abc.Core.Aspects.Postsharp.Logging;
-using Abc.Core.Aspects.Postsharp.Performance;
 using Abc.Core.Aspects.Postsharp.Transaction;
 using Abc.Core.Aspects.Postsharp.Validation;
 using Abc.Core.CrossCuttingConcerns.Caching.Microsoft;
 using Abc.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
-using Abc.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using Abc.Core.DataAccess;
 using Abc.Northwind.Business.Abstract;
 using Abc.Northwind.Business.ValidationRules.FluentValidations;
 using Abc.Northwind.DataAccess.Abstract;
 using Abc.Northwind.Entities.Concrete;
-using FluentValidation;
 
 namespace Abc.Northwind.Business.Concrete
 {
@@ -30,7 +26,8 @@ namespace Abc.Northwind.Business.Concrete
             _productRepository = productRepository;
         }
 
-        //[PerformanceCounterAspect(5)] //bu aspect tüm manager kodları için çalışmasını istiyoruz
+        //TODO: PerformanceAspect method basında çalıştırılması
+        //[PerformanceCounterAspect(5)]
         [CacheAspect(typeof(MemoryCacheManager))]
         [LogAspect(typeof(FileLogger))]
         public List<Product> GetAll()
@@ -51,7 +48,7 @@ namespace Abc.Northwind.Business.Concrete
             return _productDal.Get(p => p.ProductId == productId);
         }
 
-        //level 3
+        //TODO: Validation kullanımı senaryo 3(aspect)
         [FluentValidationAspect(typeof(ProductValidator))]
         [TransactionScopeAspect]
         [CacheRemoveAspect]
@@ -63,11 +60,11 @@ namespace Abc.Northwind.Business.Concrete
             //Transaction örneklemesi için
             //_productDal.Add(new Product());
 
-            //level 2
+            //TODO: Validation kullanımı senaryo 2 (generic validator)
             //ValidationTool.FluentValidate(new ProductValidator(), product);
             //_productDal.Add(product);
 
-            //level1
+            //TODO: Validation kullanımı senaryo 1 (direk validator)
             //ProductValidator validator = new ProductValidator();
             //var result = validator.Validate(product);
 
@@ -98,7 +95,7 @@ namespace Abc.Northwind.Business.Concrete
         {
             var result = _productRepository.Table.Where(p => p.ProductName.Contains("a"));//context açıldı
 
-            //başka kodlar
+            //iş kuralları kodları
 
             var result2 = result.Where(p => p.UnitPrice > 10);
 

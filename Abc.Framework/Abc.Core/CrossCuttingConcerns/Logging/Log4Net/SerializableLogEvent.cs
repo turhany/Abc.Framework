@@ -1,11 +1,10 @@
-﻿
-using log4net.Core;
+﻿using log4net.Core;
 
 namespace Abc.Core.CrossCuttingConcerns.Logging.Log4Net
 {
     public class SerializableLogEvent
     {
-        private LoggingEvent _loggingEvent;
+        private readonly LoggingEvent _loggingEvent;
 
         public SerializableLogEvent(LoggingEvent loggingEvent)
         {

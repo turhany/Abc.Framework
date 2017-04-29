@@ -1,5 +1,4 @@
-﻿
-using System.IO;
+﻿using System.IO;
 using log4net.Core;
 using log4net.Layout;
 using Newtonsoft.Json;

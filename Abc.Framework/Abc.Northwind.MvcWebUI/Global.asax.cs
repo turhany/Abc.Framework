@@ -12,9 +12,10 @@ namespace Abc.Northwind.MvcWebUI
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            //Bussines katmanı ile çalışan kod
+            //TODO: MVC > Bussines katmanı üzerinden çalışmasını sağlayan kod
             // ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(new BusinessModule()));
 
+            //TODO: MVC > WCF Servisi üzerinden çalışmasını sağlayan kod
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(new ServiceModule()));
         }
     }

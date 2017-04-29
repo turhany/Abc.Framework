@@ -14,6 +14,8 @@ namespace Abc.Northwind.Business.ValidationRules.FluentValidations
             RuleFor(p => p.UnitPrice).GreaterThan(0).When(p => p.CategoryId == 1);
             RuleFor(p => p.UnitsInStock).NotEmpty();
             RuleFor(p => p.UnitsInStock).GreaterThan((short)0);
+
+            //Custom validation rule tanımlaması
             //RuleFor(p => p.ProductName).Must(StartWithA);
         }
 

@@ -9,7 +9,7 @@ namespace Abc.Northwind.WebApi.Controllers
 {
     public class ProductsController : ApiController
     {
-        private IProductService _productService;
+        private readonly IProductService _productService;
 
         public ProductsController(IProductService productService)
         {

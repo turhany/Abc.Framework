@@ -52,7 +52,7 @@ namespace Abc.Northwind.Business.Concrete
         {
             var result = _categoryRepository.Table.Where(p => p.CategoryName.Contains("a"));//context açıldı
 
-            //başka kodlar
+            //iş kurallarının kodları budara yer alır
 
             var result2 = result.Where(p => p.Description.Contains("a"));
 

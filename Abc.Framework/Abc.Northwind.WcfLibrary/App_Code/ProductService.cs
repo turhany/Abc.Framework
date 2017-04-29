@@ -4,11 +4,7 @@ using Abc.Core.Utilities.Common;
 using Abc.Northwind.Business.Abstract;
 using Abc.Northwind.Business.DependencyResolvers.Ninject;
 using Abc.Northwind.Entities.Concrete;
-using AutoMapper;
 
-/// <summary>
-/// Summary description for ProductService
-/// </summary>
 public class ProductService : IProductService
 {
     private readonly IProductService _productService;

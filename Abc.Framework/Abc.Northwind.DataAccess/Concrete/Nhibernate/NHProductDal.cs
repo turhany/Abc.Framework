@@ -16,7 +16,9 @@ namespace Abc.Northwind.DataAccess.Concrete.Nhibernate
 
         public List<Product> RunSql()
         {
-            throw new System.NotImplementedException();
+            //custom sql çalıştıran kodlar
+
+            return null;
         }
     }
 }

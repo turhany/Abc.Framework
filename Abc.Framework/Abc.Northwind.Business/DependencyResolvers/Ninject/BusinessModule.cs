@@ -15,17 +15,21 @@ namespace Abc.Northwind.Business.DependencyResolvers.Ninject
     {
         public override void Load()
         {
-            this.Bind<IProductService>().To<ProductManager>().InSingletonScope();//her keze aynı instance ver, performance etkisi büyük
-            this.Bind<IProductDal>().To<EFProductDal>().InSingletonScope();
-            //this.Bind<IProductDal>().To<NHProductDal>();
+            //InSingletonScope > her keze aynı instance ver, performance etkisi büyük
+
+            //EF özelinde tanımlamalar
             this.Bind<DbContext>().To<NorthwindContext>();
-
             this.Bind(typeof(IQueryableRepository<>)).To(typeof(EFQueryableRepository<>));
-
-            this.Bind<ICategoryService>().To<CategoryManager>().InSingletonScope();//her keze aynı instance ver, performance etkisi büyük
+            this.Bind<IProductDal>().To<EFProductDal>().InSingletonScope();
             this.Bind<ICategoryDal>().To<EFCategoryDal>().InSingletonScope();
 
+            //Nhibernate özelinde tanımalamalar
             this.Bind<NHibernateHelper>().To<SqlNHibernateHelper>();
+            //this.Bind<IProductDal>().To<NHProductDal>();
+
+            //Genel manager tanımlamaları
+            this.Bind<IProductService>().To<ProductManager>().InSingletonScope();
+            this.Bind<ICategoryService>().To<CategoryManager>().InSingletonScope();
         }
     }
 }

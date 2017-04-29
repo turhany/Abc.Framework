@@ -9,7 +9,7 @@ namespace Abc.Core.Aspects.Postsharp.Validation
     [Serializable]
     public class FluentValidationAspect : OnMethodBoundaryAspect
     {
-        private Type _validatorType;
+        private readonly Type _validatorType;
 
         public FluentValidationAspect(Type validatorType)
         {

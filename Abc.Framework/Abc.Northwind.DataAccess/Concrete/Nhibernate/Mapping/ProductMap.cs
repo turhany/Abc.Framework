@@ -1,6 +1,5 @@
 ﻿using Abc.Northwind.Entities.Concrete;
 using FluentNHibernate.Mapping;
-using NHibernate.Type;
 
 namespace Abc.Northwind.DataAccess.Concrete.Nhibernate.Mapping
 {

@@ -7,10 +7,10 @@ using PostSharp.Aspects;
 namespace Abc.Core.Aspects.Postsharp.Caching
 {
     [Serializable]
-    public class CacheAspect : MethodInterceptionAspect //Runtime
+    public class CacheAspect : MethodInterceptionAspect //Runtime PostSharpAspect base
     {
-        private Type _cacheType;
-        private int _cacheMinute;
+        private readonly Type _cacheType;
+        private readonly int _cacheMinute;
         private ICacheManager _manager;
 
         public CacheAspect(Type cacheType, int cacheMinute = 60)

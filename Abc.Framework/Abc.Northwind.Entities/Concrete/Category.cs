@@ -1,5 +1,4 @@
-﻿
-using Abc.Core.Entities;
+﻿using Abc.Core.Entities;
 
 namespace Abc.Northwind.Entities.Concrete
 {

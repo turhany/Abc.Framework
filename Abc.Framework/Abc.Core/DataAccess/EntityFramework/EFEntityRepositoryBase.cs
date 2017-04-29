@@ -21,6 +21,7 @@ namespace Abc.Core.DataAccess.EntityFramework
                 addedEntity.State = EntityState.Added;
                 context.SaveChanges();
 
+                //TODO: save sonunda istersek kayıt edilen entity dönebiliriz.
                 //return addedEntity.Entity;
             }
         }

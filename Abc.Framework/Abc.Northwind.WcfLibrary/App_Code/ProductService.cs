@@ -66,4 +66,9 @@ public class ProductService : IProductService
     {
         throw new System.NotImplementedException();
     }
+
+    public List<Product> Search(Product product)
+    {
+        return _productService.Search(product);
+    }
 }

@@ -148,6 +148,9 @@
     <Compile Include="Utilities\Common\InstanceFactory.cs" />
     <Compile Include="Utilities\Common\WcfProxy.cs" />
     <Compile Include="Utilities\Mvc\Infrastructure\NinjectControllerFactory.cs" />
+    <Compile Include="Utilities\Search\ExpressionBuilder.cs" />
+    <Compile Include="Utilities\Search\Filter.cs" />
+    <Compile Include="Utilities\Search\Op.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CrossCuttingConcerns\Caching\MemCache\" />

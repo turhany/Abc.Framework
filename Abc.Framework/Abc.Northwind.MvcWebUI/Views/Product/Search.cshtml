@@ -1,0 +1,22 @@
+﻿@model List<Abc.Northwind.Entities.Concrete.Product>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+</head>
+<body>
+<div>
+    @foreach (var product in Model)
+    {
+        @product.ProductName
+        <br/>
+    }
+</div>
+</body>
+</html>

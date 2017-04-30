@@ -8,6 +8,7 @@ using Abc.Core.Aspects.Postsharp.Validation;
 using Abc.Core.CrossCuttingConcerns.Caching.Microsoft;
 using Abc.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Abc.Core.DataAccess;
+using Abc.Core.Utilities.Search;
 using Abc.Northwind.Business.Abstract;
 using Abc.Northwind.Business.BusinessAspects;
 using Abc.Northwind.Business.ValidationRules.FluentValidations;
@@ -102,6 +103,28 @@ namespace Abc.Northwind.Business.Concrete
             var result2 = result.Where(p => p.UnitPrice > 10);
 
             return result2.ToList();//tolist dediğimizde kapandı -> aynı transaction içinde oldu
+        }
+
+        public List<Product> Search(Product product)
+        {
+            List<SearchFilter> filters = new List<SearchFilter>();
+
+            if (!string.IsNullOrEmpty(product.ProductName))
+            {
+                filters.Add(new SearchFilter()
+                {
+                    PropertyName = "ProductName",
+                    Value = product.ProductName,
+                    Operation = Op.Contains
+
+                });
+            }
+
+            //Diğer alanların kontrolleri
+
+            var deleg = ExpressionBuilder.GetExpression<Product>(filters).Compile();
+
+            return _productDal.Search(deleg);
         }
     }
 }

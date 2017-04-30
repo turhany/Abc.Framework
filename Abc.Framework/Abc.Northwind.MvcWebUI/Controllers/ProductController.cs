@@ -30,5 +30,11 @@ namespace Abc.Northwind.MvcWebUI.Controllers
             _productService.Add(new Product() {CategoryId = 1, ProductName = "Elma", UnitPrice = 15, UnitsInStock = 5});
             return Content("Added");
         }
+
+        public ActionResult Search()
+        {
+            //ViewModel'e koyup gönderin
+            return View(_productService.Search(new Product { ProductName = "ab"}));
+        }
     }
 }

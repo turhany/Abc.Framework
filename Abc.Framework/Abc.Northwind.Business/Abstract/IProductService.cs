@@ -28,5 +28,8 @@ namespace Abc.Northwind.Business.Abstract
 
         [OperationContract]
         List<Product> QueryableList();
+
+        [OperationContract]
+        List<Product> Search(Product product);
     }
 }

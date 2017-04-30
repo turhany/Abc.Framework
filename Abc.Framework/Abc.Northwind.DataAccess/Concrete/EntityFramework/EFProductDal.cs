@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Abc.Core.DataAccess.EntityFramework;
 using Abc.Northwind.DataAccess.Abstract;
 using Abc.Northwind.Entities.Concrete;
@@ -15,6 +17,14 @@ namespace Abc.Northwind.DataAccess.Concrete.EntityFramework
             }
 
             return null;
+        }
+
+        public List<Product> Search(Func<Product, bool> deleg)
+        {
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                return context.Products.Where(deleg).ToList();
+            }
         }
     }
 }

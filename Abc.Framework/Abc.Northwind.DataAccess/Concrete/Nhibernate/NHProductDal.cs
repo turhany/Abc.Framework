@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Abc.Core.DataAccess.NHibernate;
 using Abc.Northwind.DataAccess.Abstract;
 using Abc.Northwind.Entities.Concrete;
+using NHibernate.Linq;
 
 namespace Abc.Northwind.DataAccess.Concrete.Nhibernate
 {
@@ -19,6 +22,14 @@ namespace Abc.Northwind.DataAccess.Concrete.Nhibernate
             //custom sql çalıştıran kodlar
 
             return null;
+        }
+
+        public List<Product> Search(Func<Product, bool> deleg)
+        {
+            using (var session = _nHibernateHelper.OpenSession())
+            {
+                return session.Query<Product>().Where(deleg).ToList();
+            }
         }
     }
 }

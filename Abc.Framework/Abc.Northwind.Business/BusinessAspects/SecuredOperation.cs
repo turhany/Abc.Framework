@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
+using System.Threading;
+using Abc.Core.CrossCuttingConcerns.Security;
 using PostSharp.Aspects;
 using Abc.Northwind.Business.DomainModels;
 
@@ -21,7 +23,8 @@ namespace Abc.Northwind.Business.BusinessAspects
         {
             //identity'den al
             //System.Threading.Thread.CurrentPrincipal.Identity.Name > token ile set edilmiş bir identity almak
-            string currentUser = "engin";
+            //string currentUser = "engin";
+            Identity identity = (Identity)Thread.CurrentPrincipal.Identity;
 
             //db'den al
             List<OperationClaim> claims = new List<OperationClaim>
@@ -33,7 +36,7 @@ namespace Abc.Northwind.Business.BusinessAspects
                 new OperationClaim { OperationName = "Customer.Read", UserName = "engin" }
             };
 
-            if (!claims.Any(c => c.UserName == currentUser && c.OperationName == _operation))
+            if (!claims.Any(c => c.UserName == identity.Name && c.OperationName == _operation))
             {
                 throw new SecurityException("You are not authorized.");
             }

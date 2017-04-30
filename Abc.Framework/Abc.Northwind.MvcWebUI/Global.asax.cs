@@ -19,10 +19,10 @@ namespace Abc.Northwind.MvcWebUI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             //TODO: MVC > Bussines katmanı üzerinden çalışmasını sağlayan kod
-            // ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(new BusinessModule()));
+            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(new BusinessModule()));
 
             //TODO: MVC > WCF Servisi üzerinden çalışmasını sağlayan kod
-            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(new ServiceModule()));
+            //ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(new ServiceModule()));
         }
 
         public override void Init()
@@ -47,8 +47,8 @@ namespace Abc.Northwind.MvcWebUI
                 var identity = securityUtilities.FormsAuthTicketToIdentity(ticket);
                 var prin = new GenericPrincipal(identity, identity.Roles);
 
-                HttpContext.Current.User = prin;
-                Thread.CurrentPrincipal = prin;
+                HttpContext.Current.User = prin;//Authorize mvc yapısı direk çalışır (Product>Add methodunda örnek vardır)
+                Thread.CurrentPrincipal = prin; //Back-end akışında kullanılmak üzere
             }
             catch (Exception)
             {

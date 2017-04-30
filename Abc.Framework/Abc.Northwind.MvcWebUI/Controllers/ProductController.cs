@@ -24,6 +24,7 @@ namespace Abc.Northwind.MvcWebUI.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Add()
         {
             _productService.Add(new Product() {CategoryId = 1, ProductName = "Elma", UnitPrice = 15, UnitsInStock = 5});

@@ -9,6 +9,7 @@ using Abc.Core.CrossCuttingConcerns.Caching.Microsoft;
 using Abc.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Abc.Core.DataAccess;
 using Abc.Northwind.Business.Abstract;
+using Abc.Northwind.Business.BusinessAspects;
 using Abc.Northwind.Business.ValidationRules.FluentValidations;
 using Abc.Northwind.DataAccess.Abstract;
 using Abc.Northwind.Entities.Concrete;
@@ -28,8 +29,9 @@ namespace Abc.Northwind.Business.Concrete
 
         //TODO: PerformanceAspect method basında çalıştırılması
         //[PerformanceCounterAspect(5)]
-        [CacheAspect(typeof(MemoryCacheManager))]
-        [LogAspect(typeof(FileLogger))]
+        [CacheAspect(typeof(MemoryCacheManager), AspectPriority = 3)]
+        [LogAspect(typeof(FileLogger), AspectPriority = 2)]
+        [SecuredOperation("Product.Read", AspectPriority = 1)]
         public List<Product> GetAll()
         {
             Thread.Sleep(6000);

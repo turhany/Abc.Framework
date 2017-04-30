@@ -65,10 +65,12 @@
   <ItemGroup>
     <Compile Include="Abstract\ICategoryService.cs" />
     <Compile Include="Abstract\IProductService.cs" />
+    <Compile Include="BusinessAspects\SecuredOperation.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
     <Compile Include="Concrete\ProductManager.cs" />
     <Compile Include="DependencyResolvers\Ninject\BusinessModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\ServiceModule.cs" />
+    <Compile Include="DomainModels\OperationClaim.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationRules\FluentValidations\ProductValidator.cs" />
   </ItemGroup>

@@ -6,6 +6,7 @@ using System.Threading;
 using Abc.Core.CrossCuttingConcerns.Security;
 using PostSharp.Aspects;
 using Abc.Northwind.Business.DomainModels;
+using System.Security.Principal;
 
 namespace Abc.Northwind.Business.BusinessAspects
 {
@@ -24,7 +25,9 @@ namespace Abc.Northwind.Business.BusinessAspects
             //identity'den al
             //System.Threading.Thread.CurrentPrincipal.Identity.Name > token ile set edilmiş bir identity almak
             //string currentUser = "engin";
-            Identity identity = (Identity)Thread.CurrentPrincipal.Identity;
+            //Identity identity = (Identity)Thread.CurrentPrincipal.Identity;
+
+            IIdentity identity = Thread.CurrentPrincipal.Identity;
 
             //db'den al
             List<OperationClaim> claims = new List<OperationClaim>

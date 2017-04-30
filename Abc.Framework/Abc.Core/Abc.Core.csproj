@@ -117,6 +117,7 @@
   <ItemGroup>
     <Compile Include="Aspects\Postsharp\Caching\CacheAspect.cs" />
     <Compile Include="Aspects\Postsharp\Caching\CacheRemoveAspect.cs" />
+    <Compile Include="Aspects\Postsharp\Exception\ExceptionAspect.cs" />
     <Compile Include="Aspects\Postsharp\Logging\LogAspect.cs" />
     <Compile Include="Aspects\Postsharp\Performance\PerformanceCounterAspect.cs" />
     <Compile Include="Aspects\Postsharp\Transaction\TransactionScopeAspect.cs" />

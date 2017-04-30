@@ -23,7 +23,7 @@ namespace Abc.Core.Aspects.Postsharp.Caching
         public override void RuntimeInitialize(MethodBase method)
         {
             if (!typeof(ICacheManager).IsAssignableFrom(_cacheType))
-                throw new Exception("Wrong Cache Manager.");
+                throw new System.Exception("Wrong Cache Manager.");
 
             _manager = (ICacheManager)Activator.CreateInstance(_cacheType);
             base.RuntimeInitialize(method);

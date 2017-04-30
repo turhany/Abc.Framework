@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Abc.Core.Aspects.Postsharp.Exception;
 using Abc.Core.Aspects.Postsharp.Performance;
+using Abc.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -14,8 +15,11 @@ using Abc.Core.Aspects.Postsharp.Performance;
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+
+//TODO: ExceptionAspect assembly seviyesinde her method eklendi
+[assembly: ExceptionAspect(typeof(DatabaseLogger))]
 //TODO: PerformanceCounterAspect assembly seviyesinde her method eklendi
-[assembly:PerformanceCounterAspect(5, AttributeTargetTypes = "Abc.Northwind.Business.Concrete.*Manager")]
+[assembly: PerformanceCounterAspect(5, AttributeTargetTypes = "Abc.Northwind.Business.Concrete.*Manager")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 

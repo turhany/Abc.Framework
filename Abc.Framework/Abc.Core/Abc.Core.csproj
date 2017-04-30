@@ -132,6 +132,9 @@
     <Compile Include="CrossCuttingConcerns\Logging\LogDetail.cs" />
     <Compile Include="CrossCuttingConcerns\Logging\LoggerService.cs" />
     <Compile Include="CrossCuttingConcerns\Logging\LogParameter.cs" />
+    <Compile Include="CrossCuttingConcerns\Security\Identity.cs" />
+    <Compile Include="CrossCuttingConcerns\Security\Web\AuthenticationHelper.cs" />
+    <Compile Include="CrossCuttingConcerns\Security\Web\SecurityUtilities.cs" />
     <Compile Include="CrossCuttingConcerns\Validation\FluentValidation\ValidationTool.cs" />
     <Compile Include="DataAccess\EntityFramework\EFEntityRepositoryBase.cs" />
     <Compile Include="DataAccess\EntityFramework\EFQueryableRepository.cs" />
